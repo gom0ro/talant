@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Қамқоршылық кеңес — Talant №1{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <nav aria-label="breadcrumb" data-aos="fade-down">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'app:index' %}">Басты бет</a></li>
+        <li class="breadcrumb-item active">Қамқоршылық кеңес</li>
+      </ol>
+    </nav>
+    <h1 class="page-header-title" data-aos="fade-up">Қамқоршылық кеңес</h1>
+    <p class="page-header-desc" data-aos="fade-up" data-aos-delay="100">Мектепті қолдау орталығы</p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="empty-state" data-aos="fade-up">
+      <i class="bi bi-people"></i>
+      <h4>Кеңес мүшелері</h4>
+      <p>Жақын арада бекітіледі</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

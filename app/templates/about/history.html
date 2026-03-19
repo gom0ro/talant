@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Мектеп тарихы — Talant №1{% endblock %}
+
+{% block content %}
+<!-- ─── PAGE HEADER ──────────────────────────────────────── -->
+<section class="page-header">
+  <div class="container">
+    <nav aria-label="breadcrumb" data-aos="fade-down">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'app:index' %}">Басты бет</a></li>
+        <li class="breadcrumb-item active">Мектеп тарихы</li>
+      </ol>
+    </nav>
+    <h1 class="page-header-title" data-aos="fade-up">Мектеп тарихы</h1>
+    <p class="page-header-desc" data-aos="fade-up" data-aos-delay="100">Мектептің құрылуы мен дамуы</p>
+  </div>
+</section>
+
+<!-- ─── CONTENT ────────────────────────────────────── -->
+<section class="section-padding">
+  <div class="container">
+    <div class="card shadow-sm border-0" data-aos="fade-up" data-aos-delay="200" style="border-radius: 12px; overflow: hidden; background: #fff;">
+      <div class="card-body p-4 p-md-5 fs-6 lh-lg text-secondary">
+        <p>Мектеп тарихы туралы ақпарат осында жазылады. Бұл нақты HTML беті.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

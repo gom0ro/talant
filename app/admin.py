@@ -111,6 +111,6 @@ class ClubAdmin(admin.ModelAdmin):
 
 
 # ── Админ-сайт баптаулары ───────────────────────────────────
-admin.site.site_header = 'IT Школа-Лицей №72 — Әкімшілік'
-admin.site.site_title = 'Школа №72 Админ'
+admin.site.site_header = 'Talant №1 — Әкімшілік'
+admin.site.site_title = 'Talant №1 Админ (Школа №1)'
 admin.site.index_title = 'Басқару панелі'

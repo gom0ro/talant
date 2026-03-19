@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}0 «Д» сыныбы — Talant №1{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <nav aria-label="breadcrumb" data-aos="fade-down">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'app:index' %}">Басты бет</a></li>
+        <li class="breadcrumb-item active">0 «Д» сыныбы</li>
+      </ol>
+    </nav>
+    <h1 class="page-header-title" data-aos="fade-up">0 «Д» сыныбы</h1>
+    <p class="page-header-desc" data-aos="fade-up" data-aos-delay="100">Мектепалды даярлық</p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="empty-state" data-aos="fade-up">
+      <i class="bi bi-children"></i>
+      <h4>МАД тобы</h4>
+      <p>Ақпарат қосылады</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

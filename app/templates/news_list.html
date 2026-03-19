@@ -37,7 +37,7 @@
           <select class="form-select" name="category" id="news-category-filter">
             <option value="">Барлық санаттар</option>
             {% for cat in categories %}
-            <option value="{{ cat.slug }}" {% if current_category==cat.slug %}selected{% endif %}>
+            <option value="{{ cat.slug }}" {% if current_category == cat.slug %}selected{% endif %}>
               {{ cat.name }}
             </option>
             {% endfor %}

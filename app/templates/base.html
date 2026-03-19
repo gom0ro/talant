@@ -36,114 +36,220 @@
 <body>
 
   <!-- ─── NAVBAR ────────────────────────────────────────── -->
-  <nav class="navbar navbar-expand-xxl fixed-top" id="mainNavbar">
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
     <div class="container-fluid px-4">
       <a class="navbar-brand d-flex align-items-center me-lg-2" href="{% url 'app:index' %}">
         <img src="{% static 'img/Талант копия.png' %}" alt="Logo" width="32" height="32" class="me-2">
         <span class="brand-text">Talant <strong> №1</strong></span>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Меню">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="d-flex align-items-center ms-auto">
+        <a class="nav-link btn-nav-contact d-none d-md-flex align-items-center me-3" href="{% url 'app:contact' %}">
+          <i class="bi bi-envelope me-1"></i>Байланыс
+        </a>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'app:index' %}">
-              <i class="bi bi-house-door me-1"></i>Басты бет
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-info-circle me-1"></i>МЕКТЕП ТУРАЛЫ
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark"
-              style="background-color: #242426; font-size: 0.9rem; border-radius: 8px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-              <li><a class="dropdown-item" href="{% url 'app:about' %}" style="padding: 10px 20px;">АҚПАРАТ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:static_page' 'history' %}"
-                  style="padding: 10px 20px;">МЕКТЕП ТАРИХЫ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:documents' %}" style="padding: 10px 20px;">МЕКТЕП
-                  ҚҰЖАТТАРЫ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:static_page' 'administration' %}"
-                  style="padding: 10px 20px;">МЕКТЕП ӘКІМШІЛІГІ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:static_page' 'deputies' %}" style="padding: 10px 20px;">ОҚУ
-                  ОРЫНБАСАРЛАРЫ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:static_page' 'normative' %}"
-                  style="padding: 10px 20px;">НОРМАТИВТІК ҚҰЖАТТАР</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:static_page' 'accounting' %}"
-                  style="padding: 10px 20px;">БУХГАЛТЕРИЯ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:static_page' 'facilities' %}"
-                  style="padding: 10px 20px;">МАТЕРИАЛДЫҚ ТЕХНИКАЛЫҚ БАЗА</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:teacher_list' %}"
-                  style="padding: 10px 20px;">МҰҒАЛІМДЕР</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-heart me-1"></i>ТӘРБИЕ ЖҰМЫСТАРЫ
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark"
-              style="background-color: #242426; font-size: 0.9rem; border-radius: 8px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-              <li><a class="dropdown-item" href="{% url 'app:tarbie_birtutas' %}" style="padding: 10px 20px;">БІРТҰТАС
-                  ТӘРБИЕ БАҒЫТЫ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:tarbie_zhospary' %}" style="padding: 10px 20px;">ТӘРБИЕ
-                  ЖҰМЫСЫНЫҢ ЖЫЛДЫҚ ЖОСПАРЫ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:tarbie_sharalar' %}" style="padding: 10px 20px;">ТӘРБИЕ
-                  ҚҰНДЫЛЫҚТАРЫ БОЙЫНША ІС-ШАРАЛАР</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:ata_analar' %}" style="padding: 10px 20px;">АТА-АНАЛАРҒА
-                  ПЕДАГОГИКАЛЫҚ ҚОЛДАУ ОРТАЛЫҒЫ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:quqyq' %}" style="padding: 10px 20px;">ҚҰҚЫҚБҰЗУШЫЛЫҚТЫҢ
-                  АЛДЫН АЛУ ЖҰМЫСТАРЫ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:profilaktika' %}"
-                  style="padding: 10px 20px;">ПРОФИЛАКТИКАЛЫҚ КЕҢЕС</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:synyp' %}" style="padding: 10px 20px;">СЫНЫП ЖЕТЕКШІЛЕР
-                  ӘДІСТЕМЕЛІК БІРЛЕСТІК ЖЕТЕКШІЛЕРДІҢ ҚҰЖАТТАРЫ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:parlament' %}" style="padding: 10px 20px;">МЕКТЕП
-                  ПАРЛАМЕНТІ</a></li>
-              <li><a class="dropdown-item" href="{% url 'app:adal_urpaq' %}" style="padding: 10px 20px;">АДАЛ ҰРПАҚ</a>
-              </li>
-              <li><a class="dropdown-item" href="{% url 'app:zhas_ulan' %}" style="padding: 10px 20px;">ЖАС ҰЛАН</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-mortarboard me-1"></i>ҚОСЫМША БІЛІМ БЕРУ
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark"
-              style="background-color: #242426; font-size: 0.9rem; border-radius: 8px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-              {% if nav_clubs %}
-              {% for club in nav_clubs %}
-              <li><a class="dropdown-item" href="{% url 'app:club_detail' club.slug %}" style="padding: 10px 20px;">{{
-                  club.name|upper }}</a></li>
-              {% endfor %}
-              {% else %}
-              <li><span class="dropdown-item-text text-muted" style="padding: 10px 20px;">Үйірмелер қосылмаған</span>
-              </li>
-              {% endif %}
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'app:news_list' %}">
-              <i class="bi bi-newspaper me-1"></i>Жаңалықтар
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'app:gallery' %}">
-              <i class="bi bi-images me-1"></i>Галерея
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn-nav-contact" href="{% url 'app:contact' %}">
-              <i class="bi bi-envelope me-1"></i>Байланыс
-            </a>
-          </li>
-        </ul>
+        <!-- Menu Toggle Button -->
+        <button class="btn-menu-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar">
+          <span class="menu-text me-2">МӘЗІР</span>
+          <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
       </div>
     </div>
   </nav>
+
+  <!-- ─── SIDEBAR MENU (OFFCANVAS) ────────────────────────── -->
+  <div class="offcanvas offcanvas-end sidebar-offcanvas" tabindex="-1" id="offcanvasNavbar"
+    aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header border-bottom">
+      <div class="d-flex align-items-center">
+        <img src="{% static 'img/Талант копия.png' %}" alt="Logo" width="32" height="32" class="me-2">
+        <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">Бөлімдер</h5>
+      </div>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+      <div class="sidebar-nav-list">
+        <!-- МЕКТЕП ТУРАЛЫ -->
+        <div class="sidebar-item has-submenu">
+          <div class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#sub-about">
+            <span><i class="bi bi-info-circle me-2"></i> МЕКТЕП ТУРАЛЫ</span>
+            <i class="bi bi-chevron-down arrow"></i>
+          </div>
+          <div class="collapse" id="sub-about">
+            <ul class="sidebar-submenu">
+              <li><a href="{% url 'app:about' %}">Ақпарат</a></li>
+              <li><a href="{% url 'app:teacher_list' %}">Мұғалімдер</a></li>
+              <li><a href="{% url 'app:documents' %}">Құжаттар</a></li>
+              <li><a href="{% url 'app:history' %}">Мектеп тарихы</a></li>
+              <li><a href="{% url 'app:administration' %}">Мектеп әкімшілігі</a></li>
+              <li><a href="{% url 'app:kitapkhana' %}">Кітапхана</a></li>
+              <li><a href="{% url 'app:askhana' %}">Мектеп асханасы</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-item has-submenu">
+          <div class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#sub-method">
+            <span><i class="bi bi-journal-text me-2"></i> ӘДІСТЕМЕЛІК ЖҰМЫСТАР</span>
+            <i class="bi bi-chevron-down arrow"></i>
+          </div>
+          <div class="collapse" id="sub-method">
+            <ul class="sidebar-submenu">
+              <li><a href="{% url 'app:magistr' %}">Педагогика ғылымдарының магистрі</a></li>
+              <li><a href="{% url 'app:sanat' %}">Біліктілік санат</a></li>
+              <li><a href="{% url 'app:zhetekshiler' %}">Әдістемелік бірлестік жетекшілері</a></li>
+              <li><a href="{% url 'app:zhetistik' %}">Жетістік</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ТӘРБИЕ ЖҰМЫСТАРЫ -->
+        <div class="sidebar-item has-submenu">
+          <div class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#sub-tarbie">
+            <span><i class="bi bi-heart me-2"></i> ТӘРБИЕ ЖҰМЫСТАРЫ</span>
+            <i class="bi bi-chevron-down arrow"></i>
+          </div>
+          <div class="collapse" id="sub-tarbie">
+            <ul class="sidebar-submenu">
+              <li><a href="{% url 'app:tarbie_birtutas' %}">Біртұтас тәрбие бағыты</a></li>
+              <li><a href="{% url 'app:tarbie_zhospary' %}">Жылдық жоспар</a></li>
+              <li><a href="{% url 'app:tarbie_sharalar' %}">Іс-шаралар</a></li>
+              <li class="border-top mt-2 pt-2"><span class="text-white-50 small px-2">АТА-АНАЛАР</span></li>
+              <li><a href="{% url 'app:ata_analar' %}">Педагогикалық қолдау орталығы</a></li>
+              <li><a href="{% url 'app:parents_meeting' %}">Ата-аналар жиналысы</a></li>
+              <li><a href="{% url 'app:school_rules' %}">Мектептің ішкі тәртіп ережелері</a></li>
+              <li><a href="{% url 'app:quqyq' %}">Құқықбұзушылықтың алдын алу</a></li>
+              <li><a href="{% url 'app:parlament' %}">Мектеп парламенті</a></li>
+              <li><a href="{% url 'app:adal_urpaq' %}">Адал ұрпақ</a></li>
+              <li><a href="{% url 'app:zhas_ulan' %}">Жас ұлан</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-item">
+          <a href="{% url 'app:med_kyzmet' %}" class="sidebar-link">
+            <span><i class="bi bi-heart-pulse me-2"></i> МЕДИЦИНАЛЫҚ ҚЫЗМЕТ</span>
+          </a>
+        </div>
+        <div class="sidebar-item">
+          <a href="{% url 'app:psikholog' %}" class="sidebar-link">
+            <span><i class="bi bi-person-lines-fill me-2"></i> ПСИХОЛОГ ҚЫЗМЕТІ</span>
+          </a>
+        </div>
+        <div class="sidebar-item">
+          <a href="{% url 'app:kamqorshy' %}" class="sidebar-link">
+            <span><i class="bi bi-people me-2"></i> ҚАМҚОРШЫЛЫҚ КЕҢЕС</span>
+          </a>
+        </div>
+
+        <!-- ЕРЕКШЕ БІЛІМ БЕРУ -->
+        <div class="sidebar-item has-submenu">
+          <div class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#sub-special">
+            <span><i class="bi bi-person-heart me-2"></i> ЕРЕКШЕ БІЛІМ БЕРУ</span>
+            <i class="bi bi-chevron-down arrow"></i>
+          </div>
+          <div class="collapse" id="sub-special">
+            <ul class="sidebar-submenu">
+              <li><a href="{% url 'app:logoped' %}">Логопед жұмысы</a></li>
+              <li><a href="{% url 'app:logoped_okushy' %}">Логопедттің оқушылармен жұмысы</a></li>
+              <li><a href="{% url 'app:defektolog' %}">Дефектолог жұмысы</a></li>
+              <li><a href="{% url 'app:defektolog_okushy' %}">Дефектологтың оқушылармен жұмысы</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- МАД ТОБЫ -->
+        <div class="sidebar-item has-submenu">
+          <div class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#sub-mad">
+            <span><i class="bi bi-children me-2"></i> МАД ТОБЫ</span>
+            <i class="bi bi-chevron-down arrow"></i>
+          </div>
+          <div class="collapse" id="sub-mad">
+            <ul class="sidebar-submenu">
+              <li><a href="{% url 'app:mad_a' %}">0 «А» сыныбы</a></li>
+              <li><a href="{% url 'app:mad_ae' %}">0 «Ә» сыныбы</a></li>
+              <li><a href="{% url 'app:mad_b' %}">0 «Б» сыныбы</a></li>
+              <li><a href="{% url 'app:mad_v' %}">0 «В» сыныбы</a></li>
+              <li><a href="{% url 'app:mad_g' %}">0 «Г» сыныбы</a></li>
+              <li><a href="{% url 'app:mad_f' %}">0 «F» сыныбы</a></li>
+              <li><a href="{% url 'app:mad_d' %}">0 «Д» сыныбы</a></li>
+              <li><a href="{% url 'app:mad_e' %}">0 «Е» сыныбы</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ҮЙІРМЕЛЕР -->
+        <div class="sidebar-item has-submenu">
+          <div class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#sub-clubs">
+            <span><i class="bi bi-mortarboard me-2"></i> ҚОСЫМША БІЛІМ БЕРУ</span>
+            <i class="bi bi-chevron-down arrow"></i>
+          </div>
+          <div class="collapse" id="sub-clubs">
+            <ul class="sidebar-submenu">
+              {% if nav_clubs %}
+              {% for club in nav_clubs %}
+              <li><a href="{% url 'app:club_detail' club.slug %}">{{ club.name }}</a></li>
+              {% endfor %}
+              {% else %}
+              <li><span class="text-muted p-2">Үйірмелер жоқ</span></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+
+        <!-- БАСҚАЛАР -->
+        <div class="sidebar-item">
+          <a href="{% url 'app:news_list' %}" class="sidebar-link">
+            <span><i class="bi bi-newspaper me-2"></i> ЖАҢАЛЫҚТАР</span>
+          </a>
+        </div>
+        <div class="sidebar-item">
+          <a href="{% url 'app:gallery' %}" class="sidebar-link">
+            <span><i class="bi bi-images me-2"></i> ГАЛЕРЕЯ</span>
+          </a>
+        </div>
+        <div class="sidebar-item has-submenu">
+          <div class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#sub-students">
+            <span><i class="bi bi-backpack me-2"></i> ОҚУШЫЛАР ҮШІН</span>
+            <i class="bi bi-chevron-down arrow"></i>
+          </div>
+          <div class="collapse" id="sub-students">
+            <ul class="sidebar-submenu">
+              <li><a href="{% url 'app:timetable' %}">Сабақ кестесі</a></li>
+              <li><a href="{% url 'app:rules' %}">Тәртіп ережесі</a></li>
+              <li><a href="{% url 'app:achievements' %}">Оқушылар жетістіктері</a></li>
+              <li><a href="{% url 'app:career' %}">Кәсіптік бағдар беру</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="sidebar-item">
+          <a href="{% url 'app:zhaz_2024' %}" class="sidebar-link">
+            <span><i class="bi bi-sun me-2"></i> ЖАЗ—2024</span>
+          </a>
+        </div>
+        <div class="sidebar-item">
+          <a href="{% url 'app:social_work' %}" class="sidebar-link">
+            <span><i class="bi bi-person-heart me-2"></i> ӘЛЕУМЕТТІК ЖҰМЫС</span>
+          </a>
+        </div>
+        <div class="sidebar-item">
+          <a href="{% url 'app:self_assessment' %}" class="sidebar-link">
+            <span><i class="bi bi-clipboard-check me-2"></i> ӨЗІН-ӨЗІ БАҒАЛАУ</span>
+          </a>
+        </div>
+        <div class="sidebar-item border-top pt-3">
+          <a href="{% url 'app:contact' %}" class="sidebar-link">
+            <span><i class="bi bi-telephone-outbound me-2"></i> БАЙЛАНЫС</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ─── FLASH MESSAGES ────────────────────────────────── -->
   {% if messages %}
@@ -224,7 +330,7 @@
               </li>
               <li>
                 <i class="bi bi-envelope-fill"></i>
-                <span>school72@edu.kz</span>
+                <span>talant1@edu.kz</span>
               </li>
               <li>
                 <i class="bi bi-clock-fill"></i>
@@ -284,6 +390,16 @@
   </script>
 
   {% block extra_js %}{% endblock %}
+  <!-- ─── FLOATING SOCIAL WIDGET ───────────────────────── -->
+  <div class="floating-social-widget">
+    <a href="#" class="social-btn instagram" aria-label="Instagram">
+      <i class="bi bi-instagram"></i>
+    </a>
+    <a href="#" class="social-btn whatsapp" aria-label="WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+  </div>
+
 </body>
 
 </html>

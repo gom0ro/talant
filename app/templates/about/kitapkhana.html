@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Мектеп кітапханасы — Talant №1{% endblock %}
+
+{% block content %}
+<!-- ─── PAGE HEADER ──────────────────────────────────────── -->
+<section class="page-header">
+  <div class="container">
+    <nav aria-label="breadcrumb" data-aos="fade-down">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'app:index' %}">Басты бет</a></li>
+        <li class="breadcrumb-item active">Мектеп кітапханасы</li>
+      </ol>
+    </nav>
+    <h1 class="page-header-title" data-aos="fade-up">Мектеп кітапханасы</h1>
+    <p class="page-header-desc" data-aos="fade-up" data-aos-delay="100">Білім ресурстарының орталығы</p>
+  </div>
+</section>
+
+<!-- ─── CONTENT ────────────────────────────────────── -->
+<section class="section-padding">
+  <div class="container">
+    <div class="empty-state" data-aos="fade-up">
+      <i class="bi bi-book"></i>
+      <h4>Кітапхана</h4>
+      <p>Кітаптар мен оқулықтар туралы ақпарат</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

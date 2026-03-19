@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Мектептің ішкі тәртіп ережелері — Talant №1{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <nav aria-label="breadcrumb" data-aos="fade-down">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'app:index' %}">Басты бет</a></li>
+        <li class="breadcrumb-item active">Мектеп ережелері</li>
+      </ol>
+    </nav>
+    <h1 class="page-header-title" data-aos="fade-up">Ішкі тәртіп ережелері</h1>
+    <p class="page-header-desc" data-aos="fade-up" data-aos-delay="100">Оқушылар мен ұстаздарға арналған ережелер</p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="empty-state" data-aos="fade-up">
+      <i class="bi bi-card-checklist"></i>
+      <h4>Ережелер тізімі</h4>
+      <p>Жақын арада бекітіледі</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

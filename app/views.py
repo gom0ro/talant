@@ -137,8 +137,11 @@ def contact(request):
 
 def static_page(request, slug):
     """Кез-келген статикалық бет"""
-    page = get_object_or_404(Page, slug=slug)
-    return render(request, 'static_page.html', {'page': page})
+    try:
+        page = Page.objects.get(slug=slug)
+    except Page.DoesNotExist:
+        page = Page.objects.create(title=slug.replace('-', ' ').title(), slug=slug, content='Бұл бет әзірге бос. <br> Админкадан толтырыңыз.')
+    return render(request, [f'pages/{slug}.html', 'static_page.html'], {'page': page})
 
 
 def club_detail(request, slug):

@@ -1,6 +1,6 @@
 """
 Django settings for project project.
-IT Школа-Лицей №72 — Шымкент
+Talant №1 — Шымкент
 """
 
 from pathlib import Path

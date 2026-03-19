@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Оқушылар жетістіктері — Talant №1{% endblock %}
+
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <nav aria-label="breadcrumb" data-aos="fade-down">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'app:index' %}">Басты бет</a></li>
+        <li class="breadcrumb-item active">Жетістіктер</li>
+      </ol>
+    </nav>
+    <h1 class="page-header-title" data-aos="fade-up">Оқушылар жетістіктері</h1>
+    <p class="page-header-desc" data-aos="fade-up" data-aos-delay="100">Білім мен өнердегі мақтаныштарымыз</p>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="empty-state" data-aos="fade-up">
+      <i class="bi bi-trophy"></i>
+      <h4>Жетістіктер</h4>
+      <p>Жақын арада қосылады</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

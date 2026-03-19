@@ -1,5 +1,5 @@
 """
-URL configuration for IT Школа-Лицей №72
+URL configuration for Talant №1
 """
 from django.contrib import admin
 from django.urls import path, include
