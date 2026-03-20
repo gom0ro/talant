@@ -20,25 +20,29 @@
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
         <div class="hero-slide" style="background-image: url('{{ slide.image.url }}');">
           <div class="hero-overlay"></div>
-          <div class="container h-100 d-flex align-items-center">
+          <div class="container h-100 d-flex align-items-center py-5">
             <div class="hero-content" data-aos="fade-up">
               <h1 class="hero-title">{{ slide.title }}</h1>
               {% if slide.subtitle %}
               <p class="hero-subtitle">{{ slide.subtitle }}</p>
               {% endif %}
-              {% if slide.link %}
-              <a href="{{ slide.link }}" class="btn btn-hero">Толығырақ <i class="bi bi-arrow-right ms-2"></i></a>
-              {% endif %}
+              <div class="d-flex gap-2 gap-md-3 flex-wrap">
+                {% if slide.link %}
+                <a href="{{ slide.link }}" class="btn btn-hero">Толығырақ <i class="bi bi-arrow-right ms-2"></i></a>
+                {% endif %}
+                <a href="{% url 'app:history' %}" class="btn btn-hero">Біз туралы <i class="bi bi-arrow-right ms-2"></i></a>
+                <a href="{% url 'app:contact' %}" class="btn btn-hero-outline">Байланыс <i class="bi bi-telephone ms-2"></i></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="width: 60px;">
       <span class="carousel-control-prev-icon"></span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" style="width: 60px;">
       <span class="carousel-control-next-icon"></span>
     </button>
   </div>
@@ -54,7 +58,7 @@
             <p class="hero-subtitle">Шымкент қаласындағы заманауи білім беру мекемесі. Болашақ IT мамандарын бірге
               дайындаймыз.</p>
             <div class="d-flex flex-wrap gap-3">
-              <a href="{% url 'app:about' %}" class="btn btn-hero">Біз туралы <i class="bi bi-arrow-right ms-2"></i></a>
+              <a href="{% url 'app:history' %}" class="btn btn-hero">Біз туралы <i class="bi bi-arrow-right ms-2"></i></a>
               <a href="{% url 'app:contact' %}" class="btn btn-hero-outline">Байланыс <i
                   class="bi bi-telephone ms-2"></i></a>
             </div>

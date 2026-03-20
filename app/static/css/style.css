@@ -202,17 +202,19 @@ a:hover {
 
 /* Sidebar (App Drawer) Premium Styling */
 .sidebar-offcanvas {
-  background: #1e293b !important; /* Premium Slate Dark */
+  background: #1e293b !important;
+  /* Premium Slate Dark */
   color: white;
   width: 330px !important;
-  max-width: 90vw !important; /* Адаптивті ені */
+  max-width: 90vw !important;
+  /* Адаптивті ені */
   border-left: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
 }
 
 .sidebar-offcanvas .offcanvas-header {
   padding: 16px 20px;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.15);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
@@ -237,9 +239,11 @@ a:hover {
 .sidebar-offcanvas .offcanvas-body::-webkit-scrollbar {
   width: 4px;
 }
+
 .sidebar-offcanvas .offcanvas-body::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .sidebar-offcanvas .offcanvas-body::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 10px;
@@ -316,12 +320,14 @@ a:hover {
   transition: color 0.2s ease;
 }
 
-.sidebar-link:hover, .sidebar-link[aria-expanded="true"] {
-  background: rgba(255,255,255,0.05);
+.sidebar-link:hover,
+.sidebar-link[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.05);
   color: #f8fafc !important;
 }
 
-.sidebar-link:hover i.me-2, .sidebar-link[aria-expanded="true"] i.me-2 {
+.sidebar-link:hover i.me-2,
+.sidebar-link[aria-expanded="true"] i.me-2 {
   color: var(--primary);
 }
 
@@ -356,7 +362,7 @@ a:hover {
 
 .sidebar-submenu li a:hover {
   color: #f8fafc;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   transform: translateX(4px);
 }
 
@@ -446,13 +452,42 @@ a:hover {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(15, 23, 42, .75) 0%, rgba(37, 99, 235, .4) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Carousel контентін блоктамай, тек слайдтың фонын блоктаймыз */
+.hero-section .hero-slide {
+  pointer-events: none;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   max-width: 650px;
+  pointer-events: auto !important;
 }
+
+.hero-content * {
+  pointer-events: auto !important;
+}
+
+.hero-content a,
+.hero-content .btn-hero,
+.hero-content .btn-hero-outline {
+  position: relative;
+  z-index: 20;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5% !important;
+  z-index: 5 !important;
+  pointer-events: auto !important;
+}
+
 
 .hero-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -529,9 +564,17 @@ a:hover {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(2deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
 }
 
 .carousel-indicators [data-bs-target] {
@@ -1927,12 +1970,27 @@ a:hover {
 
 @media (max-width: 991.98px) {
   .hero-slide {
-    height: 60vh;
-    min-height: 400px;
+    height: 65vh;
+    min-height: 420px;
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .hero-content {
+    padding: 0 8px;
+    max-width: 100%;
+  }
+
+  .d-flex.flex-wrap.gap-3 {
+    flex-direction: row !important;
+    flex-wrap: wrap;
   }
 
   .stat-card {
@@ -2029,13 +2087,41 @@ a:hover {
 
 @media (max-width: 575.98px) {
   .hero-slide {
-    height: 50vh;
-    min-height: 350px;
+    height: auto;
+    min-height: 480px;
+    padding: 30px 0;
+  }
+
+  .hero-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-content {
+    padding: 0 4px;
+    max-width: 100%;
   }
 
   .btn-hero {
-    padding: 12px 24px;
-    font-size: .9rem;
+    padding: 11px 22px;
+    font-size: 0.88rem;
+  }
+
+  .btn-hero-outline {
+    padding: 11px 22px;
+    font-size: 0.88rem;
+  }
+
+  /* Батырмаларды горизонталды қоямыз */
+  .d-flex.flex-wrap.gap-3 {
+    flex-direction: row !important;
+    gap: 10px !important;
+    flex-wrap: wrap;
   }
 }
 
@@ -2045,6 +2131,7 @@ a:hover {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -2124,11 +2211,11 @@ a:hover {
   .sidebar-offcanvas .offcanvas-header {
     padding: 14px 18px;
   }
-  
+
   .sidebar-offcanvas .offcanvas-title {
     font-size: 1rem;
   }
-  
+
   .sidebar-search-container {
     padding: 16px 16px 6px;
   }
@@ -2136,7 +2223,7 @@ a:hover {
   .sidebar-nav-list {
     padding: 6px 12px 25px;
   }
-  
+
   .sidebar-link {
     padding: 11px 12px;
     font-size: 0.88rem;
@@ -2149,7 +2236,7 @@ a:hover {
   .sidebar-submenu {
     margin-left: 28px;
   }
-  
+
   .sidebar-submenu li a {
     padding: 6px 10px;
     font-size: 0.8rem;
