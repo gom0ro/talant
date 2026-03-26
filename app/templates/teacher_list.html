@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Мұғалімдер — Talant №1{% endblock %}
+{% block title %}Әкімшілік персонал — Talant №1{% endblock %}
 
 {% block content %}
 
@@ -11,10 +11,11 @@
     <nav aria-label="breadcrumb" data-aos="fade-down">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'app:index' %}">Басты бет</a></li>
-        <li class="breadcrumb-item active">Мұғалімдер</li>
+        <li class="breadcrumb-item active">Әкімшілік персонал</li>
       </ol>
     </nav>
-    <h1 class="page-header-title" data-aos="fade-up">Біздің мұғалімдер</h1>
+    <div class="header-divider" data-aos="fade-up"></div>
+    <h1 class="page-header-title" data-aos="fade-up">Біздің әкімшілік персонал</h1>
     <p class="page-header-desc" data-aos="fade-up" data-aos-delay="100">Тәжірибелі ұстаздар ұжымы</p>
   </div>
 </section>
@@ -52,7 +53,7 @@
     {% else %}
     <div class="empty-state" data-aos="fade-up">
       <i class="bi bi-people"></i>
-      <h4>Мұғалімдер тізімі бос</h4>
+      <h4>Әкімшілік персонал тізімі бос</h4>
       <p>Ақпарат жақын арада қосылады</p>
     </div>
     {% endif %}

@@ -1,7 +1,8 @@
 from django.contrib import admin
 from .models import (
     NewsCategory, News, Teacher, GalleryAlbum, GalleryImage,
-    DocumentCategory, Document, Page, Slider, ContactMessage, Club
+    DocumentCategory, Document, Page, Slider, ContactMessage,
+    Club, ClubSchedule, ClubMember, ClubImage
 )
 
 
@@ -23,7 +24,7 @@ class NewsAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'
 
 
-# ── Мұғалімдер ──────────────────────────────────────────────
+# ── Әкімшілік персонал ──────────────────────────────────────
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
@@ -102,12 +103,47 @@ class ContactMessageAdmin(admin.ModelAdmin):
 
 # ── Үйірмелер ───────────────────────────────────────────────
 
+class ClubScheduleInline(admin.TabularInline):
+    model = ClubSchedule
+    verbose_name = "Сабақ кестесі"
+    verbose_name_plural = "Информация: Сабақ кестесі"
+    extra = 1
+
+
+class ClubMemberInline(admin.TabularInline):
+    model = ClubMember
+    verbose_name = "Қатысушы"
+    verbose_name_plural = "Информация: Қатысушылар тізімі"
+    extra = 1
+
+
+class ClubImageInline(admin.TabularInline):
+    model = ClubImage
+    verbose_name = "Фото"
+    verbose_name_plural = "Галерея: Үйірме фотосуреттері"
+    extra = 3
+
+
 @admin.register(Club)
 class ClubAdmin(admin.ModelAdmin):
-    list_display = ('name', 'order')
+    list_display = ('name', 'member_count', 'order')
     prepopulated_fields = {'slug': ('name',)}
     list_editable = ('order',)
     search_fields = ('name', 'content')
+    
+    # Секцияларға бөлу
+    fieldsets = (
+        ('👉 О кружке', {
+            'fields': ('name', 'slug', 'content', 'image', 'order'),
+            'description': 'Үйірменің негізгі мәліметтері'
+        }),
+    )
+    
+    inlines = [ClubImageInline, ClubScheduleInline, ClubMemberInline]
+
+    @admin.display(description='Қатысушылар')
+    def member_count(self, obj):
+        return obj.members.count()
 
 
 # ── Админ-сайт баптаулары ───────────────────────────────────

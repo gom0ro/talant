@@ -12,13 +12,19 @@
   <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
     <div class="carousel-indicators">
       {% for slide in sliders %}
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true" {% endif %} aria-label="Слайд {{ forloop.counter }}"></button>
+      {% if forloop.first %}
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}" class="active"
+        aria-current="true" aria-label="Слайд {{ forloop.counter }}"></button>
+      {% else %}
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}"
+        aria-label="Слайд {{ forloop.counter }}"></button>
+      {% endif %}
       {% endfor %}
     </div>
     <div class="carousel-inner">
       {% for slide in sliders %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <div class="hero-slide" style="background-image: url('{{ slide.image.url }}');">
+        <div class="hero-slide" {% if slide.image %}style="background-image: url('{{ slide.image.url }}');" {% endif %}>
           <div class="hero-overlay"></div>
           <div class="container h-100 d-flex align-items-center py-5">
             <div class="hero-content" data-aos="fade-up">
@@ -28,10 +34,11 @@
               {% endif %}
               <div class="d-flex gap-2 gap-md-3 flex-wrap">
                 {% if slide.link %}
-                <a href="{{ slide.link }}" class="btn btn-hero">Толығырақ <i class="bi bi-arrow-right ms-2"></i></a>
+                <a href="{{ slide.link }}" class="btn-hero">Толығырақ <i class="bi bi-arrow-right ms-2"></i></a>
                 {% endif %}
-                <a href="{% url 'app:history' %}" class="btn btn-hero">Біз туралы <i class="bi bi-arrow-right ms-2"></i></a>
-                <a href="{% url 'app:contact' %}" class="btn btn-hero-outline">Байланыс <i class="bi bi-telephone ms-2"></i></a>
+                <a href="{% url 'app:history' %}" class="btn-hero">Біз туралы <i class="bi bi-arrow-right ms-2"></i></a>
+                <a href="{% url 'app:contact' %}" class="btn-hero-outline">Байланыс <i
+                    class="bi bi-telephone ms-2"></i></a>
               </div>
             </div>
           </div>
@@ -39,11 +46,13 @@
       </div>
       {% endfor %}
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="width: 60px;">
-      <span class="carousel-control-prev-icon"></span>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Алдыңғы</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" style="width: 60px;">
-      <span class="carousel-control-next-icon"></span>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Келесі</span>
     </button>
   </div>
   {% else %}
@@ -58,8 +67,8 @@
             <p class="hero-subtitle">Шымкент қаласындағы заманауи білім беру мекемесі. Болашақ IT мамандарын бірге
               дайындаймыз.</p>
             <div class="d-flex flex-wrap gap-3">
-              <a href="{% url 'app:history' %}" class="btn btn-hero">Біз туралы <i class="bi bi-arrow-right ms-2"></i></a>
-              <a href="{% url 'app:contact' %}" class="btn btn-hero-outline">Байланыс <i
+              <a href="{% url 'app:history' %}" class="btn-hero">Біз туралы <i class="bi bi-arrow-right ms-2"></i></a>
+              <a href="{% url 'app:contact' %}" class="btn-hero-outline">Байланыс <i
                   class="bi bi-telephone ms-2"></i></a>
             </div>
           </div>
@@ -105,7 +114,7 @@
           </div>
           <div class="about-feature">
             <i class="bi bi-check-circle-fill"></i>
-            <span>Тәжірибелі мұғалімдер ұжымы</span>
+            <span>Тәжірибелі әкімшілік персонал ұжымы</span>
           </div>
         </div>
         <a href="{% url 'app:about' %}" class="btn btn-primary-custom mt-3">

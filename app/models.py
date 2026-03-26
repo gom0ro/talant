@@ -52,18 +52,18 @@ class News(models.Model):
 
 
 class Teacher(models.Model):
-    """Мұғалімдер"""
+    """Әкімшілік персонал"""
     name = models.CharField('Аты-жөні', max_length=200)
     slug = models.SlugField('URL', max_length=220, unique=True, blank=True)
     photo = models.ImageField('Фото', upload_to='teachers/', blank=True, null=True)
-    subject = models.CharField('Пәні', max_length=150)
+    subject = models.CharField('Лауазымы / Пәні', max_length=150)
     experience = models.PositiveIntegerField('Тәжірибесі (жыл)', default=0)
     description = models.TextField('Сипаттама', blank=True)
     order = models.PositiveIntegerField('Реттілік', default=0)
 
     class Meta:
-        verbose_name = 'Мұғалім'
-        verbose_name_plural = 'Мұғалімдер'
+        verbose_name = 'Әкімшілік персонал'
+        verbose_name_plural = 'Әкімшілік персонал'
         ordering = ['order', 'name']
 
     def save(self, *args, **kwargs):
@@ -217,7 +217,7 @@ class Club(models.Model):
     """Үйірмелер мен клубтар (Қосымша білім беру)"""
     name = models.CharField('Атауы', max_length=200)
     slug = models.SlugField('URL', max_length=220, unique=True, blank=True)
-    content = models.TextField('Мазмұны')
+    content = models.TextField('Мазмұны', blank=True)
     image = models.ImageField('Сурет', upload_to='clubs/', blank=True, null=True)
     order = models.PositiveIntegerField('Реттілік', default=0)
 
@@ -233,3 +233,45 @@ class Club(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ClubSchedule(models.Model):
+    """Үйірме кестесі"""
+    club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='schedules', verbose_name='Үйірме')
+    day = models.CharField('Күн', max_length=50)
+    time = models.CharField('Уақыт', max_length=100)
+
+    class Meta:
+        verbose_name = 'Кесте'
+        verbose_name_plural = 'Кестелер'
+
+    def __str__(self):
+        return f"{self.day}: {self.time}"
+
+
+class ClubMember(models.Model):
+    """Үйірме қатысушылары"""
+    club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='members', verbose_name='Үйірме')
+    full_name = models.CharField('Аты-жөні', max_length=255)
+    info = models.CharField('Қосымша ақпарат (сыныбы т.б.)', max_length=200, blank=True)
+
+    class Meta:
+        verbose_name = 'Қатысушы'
+        verbose_name_plural = 'Қатысушылар'
+
+    def __str__(self):
+        return self.full_name
+
+
+class ClubImage(models.Model):
+    """Үйірме галереясындағы сурет"""
+    club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='images', verbose_name='Үйірме')
+    image = models.ImageField('Сурет', upload_to='clubs/gallery/')
+    caption = models.CharField('Сипаттама', max_length=200, blank=True)
+
+    class Meta:
+        verbose_name = 'Үйірме суреті'
+        verbose_name_plural = 'Үйірме галереясы'
+
+    def __str__(self):
+        return self.caption or f"Сурет #{self.pk}"

@@ -11,7 +11,7 @@
     <nav aria-label="breadcrumb" data-aos="fade-down">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'app:index' %}">Басты бет</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'app:teacher_list' %}">Мұғалімдер</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'app:teacher_list' %}">Әкімшілік персонал</a></li>
         <li class="breadcrumb-item active">{{ teacher.name }}</li>
       </ol>
     </nav>
@@ -49,7 +49,7 @@
         </div>
         {% endif %}
         <a href="{% url 'app:teacher_list' %}" class="btn btn-outline-custom mt-4">
-          <i class="bi bi-arrow-left me-2"></i> Мұғалімдерге оралу
+          <i class="bi bi-arrow-left me-2"></i> Әкімшілік персоналға оралу
         </a>
       </div>
     </div>
